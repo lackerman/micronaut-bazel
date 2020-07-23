@@ -1,0 +1,16 @@
+Thumbs.db
+.DS_Store
+
+# IDE files
+.idea
+*.iml
+*.ipr
+*.iws
+.ijwb
+.vscode
+.project
+.settings
+.classpath
+
+## Bazel project-specific cache directory
+bazel-*
