@@ -57,7 +57,7 @@ http_archive(
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 
-MICRONAUT_VER = "2.0.0"
+MICRONAUT_VER = "1.3.7"
 
 maven_install(
     artifacts = [
