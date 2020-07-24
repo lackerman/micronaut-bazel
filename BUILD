@@ -19,7 +19,18 @@ java_library(
 )
 
 java_plugin(
-    name = "micronaut_bean_definition_inject_processor",
+    name = "typeelementvisitorprocessor",
+    processor_class = "io.micronaut.annotation.processing.TypeElementVisitorProcessor",
+    deps = [
+        "@maven//:io_micronaut_micronaut_aop",
+        "@maven//:io_micronaut_micronaut_inject",
+        "@maven//:io_micronaut_micronaut_inject_java",
+        "@maven//:io_micronaut_micronaut_validation",
+    ],
+)
+
+java_plugin(
+    name = "beandefinitioninjectprocessor",
     processor_class = "io.micronaut.annotation.processing.BeanDefinitionInjectProcessor",
     deps = [
         "@maven//:io_micronaut_micronaut_aop",
@@ -30,8 +41,8 @@ java_plugin(
 )
 
 java_plugin(
-    name = "micronaut_inject_plugin_type_element_visitor_processor",
-    processor_class = "io.micronaut.annotation.processing.TypeElementVisitorProcessor",
+    name = "servicedescriptionprocessor",
+    processor_class = "io.micronaut.annotation.processing.ServiceDescriptionProcessor",
     deps = [
         "@maven//:io_micronaut_micronaut_aop",
         "@maven//:io_micronaut_micronaut_inject",
@@ -43,8 +54,9 @@ java_plugin(
 java_library(
     name = "micronaut_annotation_lib",
     exported_plugins = [
-        "micronaut_bean_definition_inject_processor",
-        "micronaut_inject_plugin_type_element_visitor_processor",
+        "typeelementvisitorprocessor",
+        "beandefinitioninjectprocessor",
+        "servicedescriptionprocessor",
     ],
     visibility = ["//visibility:public"],
     exports = [
